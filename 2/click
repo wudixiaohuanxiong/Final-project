@@ -1,0 +1,11 @@
+var img= document.getElementById("img");
+img.ondblcick= function(){
+   if(this.width == this.attributes['default_width'].value && this.height == this.attributes['default_height'].value){
+     this.width *=3;
+     this.height *= 3;
+   }else{
+     this.width = this.attributes['default_width'].value;
+     this.height= this.attributes['default_height'].value;
+   }
+}
+};

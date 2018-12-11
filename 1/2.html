@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+	<title>Document</title>
+	<link rel="stylesheet" href="css2/index2.css" />
+	<script type = 'text/javascript' src = 'select2.js'></script>
+	<script type = 'text/javascript' src = 'animate2.js'></script>
+
+
+
+	<script>
+
+	window.onload =function ()
+	{
+
+		//定位置 五个位置对应五个json对象,放入数组中,可以灵活的获取这些json对象
+		var json = [{
+			width:700,
+			opacity: 0.1,
+			top: 300,
+			left: 0,
+			zIndex: 2
+		},{
+			width: 800,
+			opacity: 0.2,
+			top: 250,
+			left: 200,
+			zIndex: 3
+		},{
+			width: 1000,
+			opacity: 1,
+			top: 200,
+			left: 400,
+			zIndex: 4
+		},{
+			width: 800,
+			opacity: 0.7,
+			top: 250,
+			left: 900,
+			zIndex: 3
+		},{
+			width:700,
+			opacity: 0.5,
+			top:300,
+			left:1200,
+			zIndex: 2
+		},{
+			width:600,
+			opacity: 0.2,
+			top: 350,
+			left: 1500,
+			zIndex: 1
+		}];
+		refreshImageLocation(0);
+		function refreshImageLocation(index){
+			//默认情况下 第i个对应i-index个位置
+			var liArr = $('li');
+			console.log(liArr);
+			for(var i = 0; i < liArr.length; i++){
+				var li = liArr[i];
+				var locationIndex = i - index;
+				if(locationIndex < 0){
+					locationIndex += 6;
+				}
+				var locationDate = json[locationIndex];
+				console.log(locationDate);
+				animate(li, locationDate, null);
+			}
+		}
+		var index = 0;
+		//设置点击箭头事件
+		$('#prev').onclick = function(){
+			// console.log('#next');
+			index++;
+			if(index == 6){
+				index = 0;
+			}
+			refreshImageLocation(index);
+		}
+		$('#next').onclick = function(){
+			index--;
+			if(index < 0){
+				index = 5;
+			}
+			refreshImageLocation(index);
+		}
+
+	}
+
+
+</script>
+<style>
+.myImg {
+	width: auto;
+	max-width: 100%;
+	cursor: pointer;
+	transition: 0.3s;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.myImg:hover {
+	opacity: 0.8;
+}
+
+#myModal {
+	display: none;
+	position: fixed;
+	z-index: 5;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+	margin: auto;
+	display: block;
+	width: auto;
+	max-width: 700px;
+}
+
+#caption {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #ccc;
+	padding: 12px 0;
+	height: 150px;
+}
+
+.modal-content, #caption {
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+	from {transform: scale(0)}
+	to {transform: scale(1)}
+}
+
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+</style>
+<style>
+
+@keyframes fade-in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+
+#imgBox{opacity: 0;      /*实先规定文字的状态是不显示的*/
+    animation: fade-in 4s ease 0s ;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+    -webkit-animation: fade-in 4s ease 0s ;
+    -moz-animation: fade-in 4s ease 0s ;
+    -o-animation: fade-in 4s ease 0s ;
+    -ms-animation: fade-in 4s ease 0s ;
+
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+
+}
+</style>
+
+
+
+
+
+
+
+<body>
+	<div class="box">
+
+
+		<!-- 图片设置 -->
+		<div class="content">
+			<div id="imgBox">
+				<ul>
+					<li><img class="myImg" src="images/germany/5.jpg" data-src="images/germany/5 big.png" alt="TIGER I
+
+						The Tiger I About this soundlisten is a German heavy tank of World War II deployed from 1942 in Africa and Europe, usually in independent heavy tank battalions.
+
+						"
+						data-more=" Its final designation was Panzerkampfwagen VI Tiger Ausf. E often shortened to Tiger. The Tiger I gave the Wehrmacht its first armoured fighting vehicle that mounted the 8.8 cm KwK 36 gun (not to be confused with the 8.8 cm Flak 36). 1,347 were built between August 1942 and August 1944.[9] After August 1944, production of the Tiger I was phased out in favour of the Tiger II.
+
+					While the Tiger I has been called an outstanding design for its time,[10] it was over-engineered,[11] using expensive materials and labour-intensive production methods. The Tiger was prone to certain types of track failures and breakdowns, and was limited in range by its high fuel consumption. It was expensive to maintain, but generally mechanically reliable.[12] It was difficult to transport, and vulnerable to immobilisation when mud, ice, and snow froze between its overlapping and interleaved Schachtellaufwerk-pattern road wheels, often jamming them solid. This was a problem on the Eastern Front in the muddy rasputitsa season and during periods of extreme cold.[citation needed]
+
+					The tank was given its nickname "Tiger" by Ferdinand Porsche, and the Roman numeral was added after the later Tiger II entered production. The initial designation was Panzerkampfwagen VI Ausführung H (‘‘Panzer VI version H’’, abbreviated PzKpfw VI Ausf. H) where 'H' denoted Henschel as the designer/manufacturer. It was classified with ordnance inventory designation SdKfz 182. The tank was later re-designated as PzKpfw VI Ausf. E in March 1943, with ordnance inventory designation SdKfz 181.
+
+					Today, only seven Tiger I tanks survive in museums and private collections worldwide. The Tiger 131 at the UK's Tank Museum, which was captured during the North Africa Campaign, is currently the only one restored to running order."title="TIGER" id="panzer" />
+
+						<h2 class="item">TIGER I</h2></li>
+
+						<li><img class="myImg" src="images/germany/6.png" data-src="images/germany/6 big.png" alt="PANTHER
+
+
+							The Panther is a German medium tank deployed during World War II on the Eastern and Western Fronts in Europe from mid-1943 to the war's end in 1945.
+
+							"data-more=" The Panther was intended to counter the Soviet T-34 and to replace the Panzer III and Panzer IV. Nevertheless, it served alongside the Panzer IV and the heavier Tiger I until the end of the war. It is considered one of the best tanks of World War II for its excellent firepower and protection, although its reliability was less impressive.
+					The Panther was a compromise. While having essentially the same engine as the Tiger I, it had more efficient frontal hull armour， better gun penetration, was lighter and faster, and could traverse rough terrain better than the Tiger I. The trade-off was weaker side armour, which made it vulnerable to flanking fire. The Panther proved to be effective in open country and long range engagements, but did not provide enough high explosive firepower against infantry.
+					The Panther was far cheaper to produce than the Tiger I, and only slightly more expensive than the Panzer IV. Key elements of the Panther design, such as its armour, transmission, and final drive, were simplifications made to improve production rates and address raw material shortages. The overall design remained somewhat over-engineered.[8][9] The Panther was rushed into combat at the Battle of Kursk despite numerous unresolved technical problems, leading to high losses due to mechanical failure. Most design flaws were rectified by late 1943 and the spring of 1944, though the bombing of production plants, increasing shortages of high quality alloys for critical components, shortage of fuel and training space, and the declining quality of crews all impacted the tank's effectiveness.
+					"
+
+					title="PANZER 6" id="panzer" />
+							<h2 class="item">PANTHER </h2>	</li>
+
+
+
+
+					<li > 	<img class="myImg" src="images/germany/1.png"  data-src="images/germany/1big.png" alt="PANZER I
+
+						The Panzer I was a light tank produced in Germany in the 1930s. The name is short for the German Panzerkampfwagen I.
+
+						"data-more= "The tank's official German ordnance inventory designation was SdKfz 101.Design of the Panzer I began in 1932 and mass production began in 1934. Intended only as a training tank to introduce the concept of armored warfare to the German Army, the Panzer I saw combat in Spain during the Spanish Civil War, in Poland, France, the Soviet Union and North Africa during the Second World War, and in China during the Second Sino-Japanese War. Experiences with the Panzer I during the Spanish Civil War helped shape the German Panzerwaffes' invasion of Poland in 1939 and France in 1940. By 1941, the Panzer I chassis design was used as the basis of tank destroyers and assault guns. There were attempts to upgrade the Panzer I throughout its service history, including by foreign nations, to extend the design's lifespan. It continued to serve in the Spanish Armed Forces until 1954.
+The Panzer I's performance in armored combat was limited by its thin armour and light armament of two machine guns, which were never intended for use against armoured targets, rather being ideal for infantry suppression, in line with inter-war doctrine. As a design intended for training, the Panzer I was less capable than some other contemporary light tank designs, such as the Soviet T-26, although it was still relatively advanced compared to older designs, such as the Renault FT, still in service in several nations, and others. Although lacking in armoured combat as a tank, it formed a large part of Germany's mechanized forces and was used in all major campaigns between September 1939 and December 1941, where it still performed much useful service against entrenched infantry and other "soft" targets, which were unable to respond even against thin armor, and who were highly vulnerable to machine gun fire. The small, vulnerable light tank, along with its somewhat more powerful successor the Panzer II, would soon be surpassed as a front-line armoured combat vehicle by more powerful German tanks, such as the Panzer III, and later the Panzer IV, Panzer V, and Panzer VI; nevertheless, the Panzer I's contribution to the early victories of Nazi Germany during World War II was significant. Later in that war the turrets of many of the then-obsolete PzKpfw Is and PzKpfw IIs were repurposed as gun turrets on specially built defensive bunkers, particularly on the Atlantic Wall."
+
+ title="PANZER I" id="panzer"
+
+						 data-index="0"  />
+
+						<h2 class="item" >PANZER I</h2></li>
+
+						<li ><img class="myImg" src="images/germany/2.jpg"  data-src="images/germany/2 big.png" alt="PANZER II
+
+							The Panzer II was a light tank produced in Germany in the 1930s. The name is short for the German Panzerkampfwagen II.
+
+							" data-more = "The Panzer II is the common name used for a family of German tanks used in World War II. The official German designation was Panzerkampfwagen II (abbreviated PzKpfw II).
+
+Although the vehicle had originally been designed as a stopgap while larger, more advanced tanks were developed, it nonetheless went on to play an important role in the early years of World War II, during the Polish and French campaigns. The Panzer II was the most numerous tank in the German Panzer divisions at the beginning of the war. It was used in both North Africa against the Western Allies and on the Eastern Front against the Soviet Union.
+
+The Panzer II was supplanted by the Panzer III and IV medium tanks by 1940/1941. By the end of 1942, it had been largely removed from front line service and it was used for training and on secondary fronts. The turrets of the then-obsolete Panzer Is and Panzer IIs were reused as gun turrets on specially built defensive bunkers, particularly on the Atlantic Wall. Production of the tank itself ceased by January 1944, but its chassis remained in use as the basis of several other armoured vehicles, chiefly self-propelled artillery and tank destroyers such as the Wespe and Marder II respectively."
+
+title="PANZER II" id="panzer"/>
+							<h2 class="item" >PANZER II</h2></li>
+
+							<li><img class="myImg" src="images/germany/3.jpg" data-src="images/germany/3 big.png" alt="PANZER III
+
+								The Panzer I was a light tank produced in Germany in the 1930s. The name is short for the German Panzerkampfwagen I.	"
+								data-more="At the time, German (non-light) tanks were expected to carry out one of two primary tasks when assisting infantry in breakthroughs, exploiting gaps in the enemy lines where opposition had been removed, moving through and attacking the enemy's unprotected lines of communication and the rear areas. The first task was direct combat against other tanks and other armoured vehicles, requiring the tank to fire armour piercing (AP) shells.[1]
+
+On January 11, 1934, following specifications laid down by Heinz Guderian, the Army Weapons Department drew up plans for a medium tank with a maximum weight of 24,000 kg (53,000 lb) and a top speed of 35 km/h (22 mph).[2] It was intended as the main tank of the German Panzer divisions, capable of engaging and destroying opposing tank forces, and was to be paired with the Panzer IV, which was to fulfill the second use: dealing with anti-tank guns and infantry strong points, such as machine-gun nests, firing high-explosive shells at such soft targets. Such supportive tanks designed to operate with friendly infantry against the enemy generally were heavier and carried more armour.
+
+The direct infantry-support role was to be provided by the turret-less Sturmgeschütz assault gun, which mounted a short-barrelled gun on a Panzer III chassis." title="PANZER III" id="panzer" />
+								<h2 class="item" >PANZER III</h2></li>
+
+								<li><img class="myImg" src="images/germany/4.jpg" data-src="images/germany/4 big.png" alt="PANZER IV
+
+									The Panzer IV was the brainchild of the German general and innovative armored warfare theorist Heinz Guderian.
+
+									"
+									data-more="The Panzerkampfwagen IV (PzKpfw IV), commonly known as the Panzer IV, was a German medium tank developed in the late 1930s and used extensively during the Second World War. Its ordnance inventory designation was Sd.Kfz. 161.
+
+The Panzer IV was the most widely manufactured German tank and the second-most widely manufactured German armored fighting vehicle of the Second World War, with some 8,500 built. The Panzer IV chassis was used as the base for many other fighting vehicles, including the Sturmgeschütz IV assault gun, Jagdpanzer IV tank destroyer, the Wirbelwind self-propelled anti-aircraft gun, and the Brummbär self-propelled gun.
+
+The Panzer IV saw service in all combat theaters involving Germany and was the only German tank to remain in continuous production throughout the war. It received various upgrades and design modifications, intended to counter new threats, extending its service life. Generally, these involved increasing the Panzer IV's armor protection or upgrading its weapons, although during the last months of the war, with Germany's pressing need for rapid replacement of losses, design changes also included simplifications to speed up the manufacturing process.
+
+The Panzer IV was partially succeeded by the Panther medium tank, which was introduced to counter the Soviet T-34, although the Panzer IV continued as a significant component of German armoured formations to the end of the war. The Panzer IV was the most widely exported tank in German service, with around 300 sold to Finland, Romania, Spain and Bulgaria. After the war, Syria procured Panzer IVs from France and Czechoslovakia, which saw combat in the 1967 Six-Day War. 8,553 Panzer IVs of all versions were built during World War II, with only the StuG III assault-gun/tank destroyer's 10,086 vehicle production run exceeding the Panzer IV's total among Axis armored forces." title="PANZER IV" id="panzer" />
+									<h2 class="item">PANZER IV</h2></li>
+
+
+									</ul>
+								</div>
+							</div>
+							<div id="myModal">
+								<span class="close">&times;</span>
+								<img class="modal-content" id="imgModal">
+								<div id="caption"></div>
+							</div>
+							<script>
+								let modal = document.getElementById('myModal');
+								let captionText = document.getElementById('caption');
+								let bigImg = document.getElementById('imgModal');
+								let imgList = document.getElementsByClassName('myImg');
+								let imgBox = document.getElementById('imgBox');
+
+								imgBox.addEventListener('click', function(e) {
+									var e = e || window.e;
+									modal.style.display = 'block';
+									bigImg.src = e.target.getAttribute('data-src');
+									captionText.innerText = e.target.getAttribute('alt');
+
+									// add more text element to caption//
+									moreText = e.target.getAttribute('data-more');
+									console.log("more text:   "+moreText)
+									let paragraph = document.createElement("p");
+									paragraph.innerText = moreText;
+									captionText.appendChild(paragraph);
+
+
+
+
+
+
+
+									e.stopPropagation();
+								}, false);
+
+								modal.addEventListener('click', function(e) {
+									var e = e || window.e;
+									modal.style.display = 'none';
+									e.stopPropagation();
+								}, false);
+							</script>
+
+
+
+
+
+
+							<!-- 左右箭头设置 -->
+							<div class="control">
+								<a href="javascript:;" id="prev"></a>
+								<a href="javascript:;" id="next"></a>
+							</div>
+						</div>
+					</body>
+					</html>

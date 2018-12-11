@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>HIstory of Tanks</title>
+<link rel="stylesheet" href="css/index.css" />
+<script type = 'text/javascript' src = 'select.js'></script>
+<script type = 'text/javascript' src = 'animate.js'></script>
+
+<script>
+	window.onload =function () {
+		//定位置 五个位置对应五个json对象,放入数组中,可以灵活的获取这些json对象
+		var json = [{
+			width: 500,
+			opacity: 0.4,
+			top: 250,
+			left: 1000,
+			zIndex: 1
+		},{
+			width: 500,
+			opacity: 0.7,
+			top: 250,
+			left: 400,
+			zIndex: 2
+		},{
+			width: 800,
+			opacity: 1,
+			top: 200,
+			left: 550,
+			zIndex: 3
+		},];
+		refreshImageLocation(0);
+		function refreshImageLocation(index){
+			//默认情况下 第i个对应i-index个位置
+			var liArr = $('li');
+			console.log(liArr);
+			for(var i = 0; i < liArr.length; i++){
+				var li = liArr[i];
+				var locationIndex = i - index;
+				if(locationIndex < 0){
+					locationIndex += 3;
+				}
+				var locationDate = json[locationIndex];
+				console.log(locationDate);
+				animate(li, locationDate, null);
+			}
+		}
+		var index = 0;
+		//设置点击箭头事件
+		$('#prev').onclick = function(){
+			// console.log('#next');
+			index++;
+			if(index == 3){
+				index = 0;
+			}
+			refreshImageLocation(index);
+		}
+		$('#next').onclick = function(){
+			index--;
+			if(index < 0){
+				index = 3;
+			}
+			refreshImageLocation(index);
+		}
+
+	}
+</script>
+<style>
+
+@keyframes fade-in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+
+.content{opacity: 0;      /*实先规定文字的状态是不显示的*/
+    animation: fade-in 4s ease 0s ;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+    -webkit-animation: fade-in 4s ease 0s ;
+    -moz-animation: fade-in 4s ease 0s ;
+    -o-animation: fade-in 4s ease 0s ;
+    -ms-animation: fade-in 4s ease 0s ;
+
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+
+}
+</style>
+
+
+</head>
+<body style=" height=100%; width=100%;" >
+	<div class="box">
+
+
+		<!-- 图片设置 -->
+		<div class="content">
+			<ul>
+				<li><img src="images/slidepic1.png" alt="Germany" />
+				<h1  class="border"><a href="1/2.html">GERMANY</a></h1>
+			></li>
+
+
+				<li><img src="images/slidepic2.png" alt="Russia" />
+				<h1 class="border"><a href="2/3.html">RUSSIA</a></h1></li>
+
+
+				<li><img src="images/slidepic3.png" alt="" />
+				<h1 class="border"><a href="3/4.html">U.S.A</a></h1></li>
+
+
+
+
+			</ul>
+		</div>
+
+		<!-- 左右箭头设置 -->
+		<div class="control">
+			<a href="javascript:;" id="prev"></a>
+			<a href="javascript:;" id="next"></a>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

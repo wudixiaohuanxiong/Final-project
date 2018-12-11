@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<title>Document</title>
+<link rel="stylesheet" href="css3/index3.css" />
+<script type = 'text/javascript' src = 'select3.js'></script>
+<script type = 'text/javascript' src = 'animate3.js'></script>
+
+
+
+<script>
+
+	window.onload =function ()
+	 {
+
+		//定位置 五个位置对应五个json对象,放入数组中,可以灵活的获取这些json对象
+		var json = [{
+			width:700,
+			opacity: 0.1,
+			top: 300,
+			left: 0,
+			zIndex: 2
+		},{
+			width: 800,
+			opacity: 0.2,
+			top: 250,
+			left: 200,
+			zIndex: 3
+		},{
+			width: 1000,
+			opacity: 1,
+			top: 200,
+			left: 400,
+			zIndex: 4
+		},{
+			width: 800,
+			opacity: 0.7,
+			top: 250,
+			left: 900,
+			zIndex: 3
+		},{
+			width:700,
+			opacity: 0.5,
+			top:300,
+			left:1200,
+			zIndex: 2
+		},{
+			width:600,
+			opacity: 0.2,
+			top: 350,
+			left: 1500,
+			zIndex: 1
+		}];
+		refreshImageLocation(0);
+		function refreshImageLocation(index){
+			//默认情况下 第i个对应i-index个位置
+			var liArr = $('li');
+			console.log(liArr);
+			for(var i = 0; i < liArr.length; i++){
+				var li = liArr[i];
+				var locationIndex = i - index;
+				if(locationIndex < 0){
+					locationIndex += 6;
+				}
+				var locationDate = json[locationIndex];
+				console.log(locationDate);
+				animate(li, locationDate, null);
+			}
+		}
+		var index = 0;
+		//设置点击箭头事件
+		$('#prev').onclick = function(){
+			// console.log('#next');
+			index++;
+			if(index == 6){
+				index = 0;
+			}
+			refreshImageLocation(index);
+		}
+		$('#next').onclick = function(){
+			index--;
+			if(index < 0){
+				index = 5;
+			}
+			refreshImageLocation(index);
+		}
+
+	}
+
+
+</script>
+<style>
+        .myImg {
+            width: auto;
+            max-width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .myImg:hover {
+            opacity: 0.8;
+        }
+
+        #myModal {
+            display: none;
+            position: fixed;
+            z-index: 5;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 700px;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 12px 0;
+            height: 150px;
+        }
+
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+		<style>
+
+		@keyframes fade-in{
+		    0%{ opacity: 0;}
+		    100%{opacity:1;}
+		}
+
+		#imgBox{opacity: 0;      /*实先规定文字的状态是不显示的*/
+		    animation: fade-in 4s ease 0s ;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+		    -webkit-animation: fade-in 4s ease 0s ;
+		    -moz-animation: fade-in 4s ease 0s ;
+		    -o-animation: fade-in 4s ease 0s ;
+		    -ms-animation: fade-in 4s ease 0s ;
+
+		    /*规定动画的最后状态为结束状态*/
+		    animation-fill-mode:forwards;
+		    -webkit-animation-fill-mode: forwards;
+		      -o-animation-fill-mode: forwards;
+		      -ms-animation-fill-mode: forwards;
+		      -moz-animation-fill-mode: forwards;
+
+		}
+		</style>
+
+
+
+
+
+
+
+<body>
+	<div class="box">
+
+		<!-- 图片设置 -->
+		<div class="content">
+			<div id="imgBox">
+			<ul>
+				<li><img class="myImg" src="images/russia/is2.png" data-src="images/russia/is2big.png" alt="IS2
+				The IS2 Tank was a series of heavy tanks developed as a successor to the KV-series by the Soviet Union during World War II.
+
+				"
+				data-more="The IS-122 prototype replaced the IS-85 and began mass production as the IS-2. The 85 mm guns could be reserved for the new T-34-85 medium tank and some of the IS-1s built were rearmed before leaving the factory and issued as IS-2s. It was slightly lighter and faster than the heaviest KV model 1942 tank, with thicker front armor and a much-improved turret design. The tank could carry thicker armor than the KV series, while remaining lighter, due to the better layout of the armor envelope. The KV's armor was less well-shaped and featured heavy armor even on the rear, while the IS series concentrated its armor at the front. The IS-2 was slightly lighter than the Panther, much lighter than the Tiger I and Tiger II and had a lower silhouette than both. Western observers tended to criticize Soviet tanks for their lack of finish and crude construction. The Soviets argued that it was warranted, considering the need for wartime expediency and the typically short battlefield life of their tanks.Early IS-2s can be identified by the 'stepped' front hull casting with its small, opening driver's visor. The early tanks lacked gun tube travel locks or anti-aircraft-capable machine guns and had narrow mantlets.
+				In late 1944, the stepped hull front was replaced with an improved single casting of 120 mm thickness angled at 60 degrees. This new nose lacked the opening driver's visor. It is sometimes incorrectly referred to as the IS-2M, but that designation actually refers to a much later modernization program from the 1950s. Other minor upgrades included the addition of a travel lock on the hull rear, wider mantlet and, on very late models, an anti-aircraft machine gun.
+
+				"
+
+				title="IS2" id="panzer" />
+				<h2 class="item">IS2</h2></li>
+
+				<li><img class="myImg" src="images/russia/is3.png" data-src="images/russia/is3big.png" alt="IS3
+
+					There are two tanks known as IS-3: Object 244 was an IS-2 rearmed with the long-barrelled 85 mm cannon (D-5T-85-BM) and developed by LKZ (in Leningrad), which was never series-produced for service use.
+
+				"
+				data-more="Object 703 was developed in late 1944 by ChTZ (in Chelyabinsk) and left the factory shop in May 1945. This tank had an improved armour layout, and a semi-hemispherical cast turret (resembling an upturned soup bowl), which became the hallmark of post-war Soviet tanks. While this low, hemispherical turret improved protection, it also significantly diminished crew headroom, especially for the loader. The low turret also limited the maximum depression of the main gun, since the gun breech had little room inside the turret to elevate, and this limited the extent to which the IS-3 could take advantage of hull-down positions. The IS-3's pointed prow earned it the nickname Shchuka (Pike) by its crews. It weighed slightly less and stood 30 centimetres (12 in) lower than previous versions. Wartime production resulted in many mechanical problems and a hull weldline that had a tendency to crack open.
+
+				The IS-3 came too late to see action in World War II. The first public demonstration of the IS-3 came on 7 September 1945 during the Allied victory parade on Charlottenburger Straße in Berlin, with the heavily reinforced 71st Guards Heavy Tank Regiment of the 2nd Guards Tank Army.[29] Starting in 1960, the IS-3 was slightly modernized as the IS-3M, in a manner similar to the IS-2M."
+
+				title="IS3" id="panzer" />
+				<h2 class="item">IS3</h2></li>
+
+				<li > 	<img class="myImg" src="images/russia/t26.png"  data-src="images/russia/t26big.png" alt="T26
+
+					The T-26 tank was a Soviet light infantry tank used during many conflicts of the 1930s and in World War II.
+
+"
+data-more=" It was a development of the British Vickers 6-Ton tank and was one of the most successful tank designs of the 1930s until its light armour became vulnerable to newer anti-tank guns. It was produced in greater numbers than any other tank of the period, with more than 11,000 units manufactured. During the 1930s, the USSR developed 53 variants of the T-26, including flame-throwing tanks, combat engineer vehicles, remotely controlled tanks, self-propelled guns, artillery tractors, and armoured carriers. Twenty-three of these were series-produced, others were experimental models.
+
+The T-26 and BT were the main tanks of the Red Army's armoured forces during the interwar period. The T-26 was the most important tank of the Spanish Civil War and played a significant role during the Battle of Lake Khasan in 1938, as well as in the Winter War in 1939–40. Though nearly obsolete by the beginning of World War II, the T-26 was the most numerous tank in the Red Army's armoured force during the German invasion of the Soviet Union in June 1941.[6] The T-26 fought the Germans and their allies during the Battle of Moscow in 1941–42, the Battle of Stalingrad and the Battle of the Caucasus in 1942–1943; some tank units of the Leningrad Front used their T-26s until 1944. Soviet T-26 light tanks last saw use in August 1945, during the defeat of the Japanese Kwantung Army in Manchuria.
+
+ "
+title="T26" id="panzer"
+
+" data-index="0"  />
+
+				<h2 class="item" >T26</h2></li>
+
+				<li ><img class="myImg" src="images/russia/bt7.png"  data-src="images/russia/bt7big.png" alt="BT7
+
+					The BT-7 was the last of the BT series of Soviet cavalry tanks that were produced in large numbers between 1935 and 1940.
+
+"
+data-more="The first prototypes of the BT-7 had a distinctive canted-ellipse shaped turret mounting both the main gun and a coaxial machine-gun. The specification also called for the project to allow for the installation of new guns without any significant change to the framework: the 76 mm KT-26 or PS-3 main gun (a short-barreled howitzer) and the 45 mm 20K model 1932/38, a long-barreled, high-velocity gun useful against tanks, but less effective than the 76 mm gun against infantry.
+
+In the rear of the turret, there was a rotating drum-type magazine for 18 45 mm shells or a radio station. The prototype underwent an extensive testing program in the summer and autumn of 1934. As a result of this testing, it was felt that a machine-gun was unnecessary on a tank with a 3-man crew, especially as it made the assembly of the turret more complicated.
+
+Therefore, in early 1935, the tank went into production with a simpler design, incorporating the turret from the BT-5. (However, the idea of a wheeled/tracked vehicle with a 76 mm cannon was not abandoned and the plant was commissioned to develop a new BT-7 turret from the turret of the T-26-4.) In the production model, a cylindrical turret housed a 45 mm 20K gun with a DT machine gun. On some of the tanks, a model 71-TC radio with frame antenna was installed.
+
+
+"
+title="BT7" id="panzer"/>
+				<h2 class="item" >BT7</h2></li>
+
+				<li><img class="myImg" src="images/russia/kv.png" data-src="images/russia/kvbig.png" alt="KV2
+
+					A heavy assault tank with the M-10 152 mm howitzer, the KV-2 was produced at the same time as the KV-1.
+
+"
+data-more="After disappointing results with the multi-turreted T-35 heavy tank, Soviet tank designers started drawing up replacements. The T-35 conformed to the 1920s notion of a 'breakthrough tank' with very heavy firepower and armour protection, but suffered from poor mobility. The Spanish Civil War demonstrated the need for much heavier armour on tanks, and was the main influence on Soviet tank design just prior to World War II.
+
+
+The KV was ordered right off the drawing board. When the Soviets entered the Winter War, the SMK, KV and a third design, the T-100, were sent to be tested in combat conditions. The KV outperformed the SMK and T-100 designs. The KV's heavy armour proved highly resistant to Finnish anti-tank weapons, making it more difficult to stop. In 1939, the production of 50 KVs was ordered. During the war, the Soviets found it difficult to deal with the concrete bunkers used by the Finns and a request was made for a tank with a large howitzer. One of the rush projects to meet the request put the howitzer in a new turret on one of the KV tanks. Initially known as 'Little turret KV' and 'Big turret KV', the 76-mm-armed tank was redesignated as the KV-1 Heavy Tank and the 152 mm howitzer one as KV-2 Heavy Artillery Tank."
+ title="KV2" id="panzer" />
+				<h2 class="item" >KV2</h2></li>
+
+				<li><img class="myImg" src="images/russia/t34.png" data-src="images/russia/t34big.png" alt="T34
+
+				The T-34 is a Soviet medium tank that had a profound and lasting effect on the field of tank design. At its introduction, the T-34 possessed an unprecedented combination of firepower, mobility, protection and ruggedness.
+
+"
+data-more=" Its 76.2 mm (3 in) high-velocity tank gun provided a substantial increase in firepower over any of its contemporaries; its well-sloped armour was difficult to penetrate by most contemporary anti-tank weapons. When it was first encountered in 1941, German general Paul Ludwig Ewald von Kleist called it 'the finest tank in the world' and Heinz Guderian affirmed the T-34's 'vast superiority' over existing German armour of the period. Although its armour and armament were surpassed later in the war, it has often been credited as the most effective, efficient and influential tank design of the Second World War.
+
+The T-34 was the mainstay of Soviet armoured forces throughout the Second World War. Its design allowed it to be continuously refined to meet the constantly evolving needs of the Eastern Front: as the war went on it became more capable, but also quicker and cheaper to produce. Soviet industry would eventually produce over 80,000 T-34s of all variants, allowing steadily greater numbers to be fielded as the war progressed despite the loss of tens of thousands in combat against the German Wehrmacht. Replacing many light and medium tanks in Red Army service, it was the most-produced tank of the war, as well as the second most produced tank of all time (after its successor, the T-54/55 series). At 44,900 losses during the war, it also suffered the most tank losses of all time.[12] Its development led directly to the T-54 and T-55 series of tanks, which in turn evolved into the later T-62, T-72, and T-90 that form the armoured mainstay of many modern armies. T-34 variants were widely exported after World War II, and in 2010 the tank remained in limited front line service with several developing countries.
+
+"
+ title="T-34" id="panzer" />
+				<h2 class="item">T34</h2></li>
+
+
+			</ul>
+		</div>
+	</div>
+	<div id="myModal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgModal">
+        <div id="caption"></div>
+    </div>
+    <script>
+        let modal = document.getElementById('myModal');
+        let captionText = document.getElementById('caption');
+        let bigImg = document.getElementById('imgModal');
+        let imgList = document.getElementsByClassName('myImg');
+        let imgBox = document.getElementById('imgBox');
+
+        imgBox.addEventListener('click', function(e) {
+            var e = e || window.e;
+            modal.style.display = 'block';
+            bigImg.src = e.target.getAttribute('data-src');
+            captionText.innerText = e.target.getAttribute('alt');
+
+
+
+						moreText = e.target.getAttribute('data-more');
+						console.log("more text:   "+moreText)
+						let paragraph = document.createElement("p");
+						paragraph.innerText = moreText;
+						captionText.appendChild(paragraph);
+
+
+
+
+            e.stopPropagation();
+        }, false);
+
+        modal.addEventListener('click', function(e) {
+            var e = e || window.e;
+            modal.style.display = 'none';
+            e.stopPropagation();
+        }, false);
+    </script>
+
+
+
+
+
+
+		<!-- 左右箭头设置 -->
+		<div class="control">
+			<a href="javascript:;" id="prev"></a>
+			<a href="javascript:;" id="next"></a>
+		</div>
+	</div>
+</body>
+</html>

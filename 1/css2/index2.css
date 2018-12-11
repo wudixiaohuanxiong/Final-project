@@ -1,0 +1,133 @@
+*{margin: 0;padding: 0;}
+ul{list-style: none;}
+/*大盒子*/
+.box{
+
+	margin: 0px auto;
+	width:100%;
+
+	position:absolute;
+
+			background-image: url(../images/3.jpg);
+	
+	height:100vh;
+}
+h1{margin: 80px 320px;
+color:rgb(0,0,0);
+font-weight: bold;
+font-size: 250%;}
+
+/*左右箭头
+#dialog_pic {
+	position:fixed;
+	top:0;
+	bottom;
+	background:rgba(0,0,0,0.7);
+	z-index:100;
+	display:none;
+
+}
+.dialog-body{
+	width:100%;
+	max-width:1200px;
+	max-height: 1000px;
+	margin: 0 auto;
+	overflow: auto;
+}
+img{width:100%}
+*/
+
+
+/*左右箭头*/
+#next, #prev{
+	position: absolute;
+	width: 76px;
+	height: 112px;
+	top: 400px;
+	left:1200px;
+	right:0px;
+
+	z-index: 5;
+}
+#next{
+	left: 1700px;
+		background : url(../images/germany/next_1.png) no-repeat 0 0;
+}
+#prev{
+	left: 100px;
+	background: url(../images/germany/prev_1.png) no-repeat 0 0;
+}
+
+.box .content li{
+	position: absolute;
+
+
+}
+.box .content li img{
+	width: 100%;
+}
+
+	data-more {
+		margin: 500px;
+		font-weight: bold;
+		font-size: 250%;
+	}
+
+
+.item{display:inline-block;
+color: white;
+
+padding:30px;
+width:50px;
+margin-left: 460px;
+text-align: center;
+
+}
+a:visited{color:rgb();}
+a:link{color:white;
+text-decoration: none;}
+a:active{color: darkcyan;}
+a:focus{color: rgb(255,255,255)}
+
+
+
+
+
+
+/*可以通过css设置定位
+.box .content li.li1{
+	width: 300px;
+	opacity: 0.4;
+	top: 30px;
+	left: 50px;
+	z-index: 1;
+}
+.box .content li.li2{
+	width: 400px;
+	opacity: 0.7;
+	top: 100px;
+	left: 0;
+	z-index: 2;
+}
+.box .content .li3{
+	width: 600px;
+	opacity: 1;
+	top: 200px;
+	left: 200px;
+	z-index: 3;
+}
+.box .content .li4{
+	width: 400px;
+	opacity: 0.7;
+	right: 0;
+	top: 100px;
+	z-index: 2;
+}
+.box .content .li5{
+	width: 300px;
+	opacity: 0.4;
+	top: 30px;
+	right: 50px;
+	z-index: 1;
+}
+*/

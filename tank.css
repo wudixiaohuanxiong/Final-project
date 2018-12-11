@@ -1,0 +1,62 @@
+@font-face {font-family: "circular-bold";
+      src: url('fonts/circular-bold.woff2') format('woff2');
+
+}
+body {background-color: rgba(0, 0,0, 1);
+      padding:400px;
+      color:rgba(255,255,255,1);
+      font-weight: bold;
+      font-size: 20px;
+      margin:0 auto;
+      width:50%;
+
+    }
+    .container {width: auto;
+        text-align: center;
+        max-width: 940px;
+        min-width: 720px;
+        font-weight: bold;
+
+
+    }
+.card{margin-top: 50px;
+transition:0.5s;
+
+
+}
+
+  .item {width:0 auto;
+    cursor: pointer;margin-right: auto;
+    margin-top: 300px;
+}
+
+.border{display:inline-block;
+
+border-radius: 8px;
+border: 1px solid white;
+padding:10px;
+width:50px;
+}
+a:visited{color:white;}
+a:link{color:white;
+text-decoration: none;}
+a:active{color: darkcyan;}
+a:focus{color: rgd(255,255,255)}
+
+
+
+
+
+
+
+
+
+
+
+    h1 {color:rgb(255,255,255);
+      font-size: 250%;
+      line-height: 1.5em;
+      width:60%;
+      margin: auto;
+transition:0.5s;
+    }

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<title>Document</title>
+<link rel="stylesheet" href="css4/index4.css" />
+<script type = 'text/javascript' src = 'select4.js'></script>
+<script type = 'text/javascript' src = 'animate4.js'></script>
+
+
+
+<script>
+
+	window.onload =function ()
+	 {
+
+		//定位置 五个位置对应五个json对象,放入数组中,可以灵活的获取这些json对象
+		var json = [{
+			width:700,
+			opacity: 0.1,
+			top: 300,
+			left: 0,
+			zIndex: 2
+		},{
+			width: 800,
+			opacity: 0.2,
+			top: 250,
+			left: 200,
+			zIndex: 3
+		},{
+			width: 1000,
+			opacity: 1,
+			top: 200,
+			left: 400,
+			zIndex: 4
+		},{
+			width: 800,
+			opacity: 0.7,
+			top: 250,
+			left: 900,
+			zIndex: 3
+		},{
+			width:700,
+			opacity: 0.5,
+			top:300,
+			left:1200,
+			zIndex: 2
+		},{
+			width:600,
+			opacity: 0.2,
+			top: 350,
+			left: 1500,
+			zIndex: 1
+		}];
+		refreshImageLocation(0);
+		function refreshImageLocation(index){
+			//默认情况下 第i个对应i-index个位置
+			var liArr = $('li');
+			console.log(liArr);
+			for(var i = 0; i < liArr.length; i++){
+				var li = liArr[i];
+				var locationIndex = i - index;
+				if(locationIndex < 0){
+					locationIndex += 6;
+				}
+				var locationDate = json[locationIndex];
+				console.log(locationDate);
+				animate(li, locationDate, null);
+			}
+		}
+		var index = 0;
+		//设置点击箭头事件
+		$('#prev').onclick = function(){
+			// console.log('#next');
+			index++;
+			if(index == 6){
+				index = 0;
+			}
+			refreshImageLocation(index);
+		}
+		$('#next').onclick = function(){
+			index--;
+			if(index < 0){
+				index = 5;
+			}
+			refreshImageLocation(index);
+		}
+
+	}
+
+
+</script>
+<style>
+        .myImg {
+            width: auto;
+            max-width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .myImg:hover {
+            opacity: 0.8;
+        }
+
+        #myModal {
+            display: none;
+            position: fixed;
+            z-index: 5;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 700px;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 12px 0;
+            height: 150px;
+        }
+
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+		<style>
+
+		@keyframes fade-in{
+		    0%{ opacity: 0;}
+		    100%{opacity:1;}
+		}
+
+		#imgBox{opacity: 0;      /*实先规定文字的状态是不显示的*/
+		    animation: fade-in 4s ease 0s ;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+		    -webkit-animation: fade-in 4s ease 0s ;
+		    -moz-animation: fade-in 4s ease 0s ;
+		    -o-animation: fade-in 4s ease 0s ;
+		    -ms-animation: fade-in 4s ease 0s ;
+
+		    /*规定动画的最后状态为结束状态*/
+		    animation-fill-mode:forwards;
+		    -webkit-animation-fill-mode: forwards;
+		      -o-animation-fill-mode: forwards;
+		      -ms-animation-fill-mode: forwards;
+		      -moz-animation-fill-mode: forwards;
+
+		}
+		</style>
+
+
+
+
+
+
+<body>
+	<div class="box">
+
+		<!-- 图片设置 -->
+		<div class="content">
+			<div id="imgBox">
+			<ul>
+
+
+
+
+				<li><img class="myImg" src="images/usa/m24.png" data-src="images/usa/m24big.png" alt="M24
+
+					The M24 Chaffee (officially Light Tank, M24) is an American light tank used during the later part of World War II.
+
+"
+data-more="British combat experience in the North African campaign identified several shortcomings of the M3 Stuart light tank, especially the performance of its 37 mm cannon. A 75 mm gun was experimentally fitted to an Howitzer Motor Carriage M8 - an M3 tank with a larger turret - and trials indicated that a 75 mm gun on the M5 light tank development of the M3 was possible. The M3/M5 design was dated though, the 75 mm gun reduced storage space, and the armor was insufficient.
+
+The T7 light tank design, which was initially seen as a replacement, grew in weight to more than 25 short tons taking it out of the light tank classification, and so was designated as the Medium Tank M7. The weight increase without increased power gave it unsatisfactory performance; the program was stopped in March 1943 to allow standardization on a single medium tank - the M4 medium. This prompted the Ordnance Committee to issue a specification for a new light tank, with the same powertrain as the M5A1 but armed with a 75 mm gun."
+ title="M24" id="panzer" />
+				<h2 class="item">M24</h2></li>
+
+        <li><img class="myImg" src="images/usa/m26.png" data-src="images/usa/m26big.png" alt="M26
+
+					The M26 Pershing was a heavy tank/medium tank of the United States Army. The tank was named after General of the Armies John J. Pershing, who led the American Expeditionary Force in Europe in World War II.
+
+"
+data-more=" It was briefly used in the final months of World War II during the Invasion of Germany and extensively during the Korean War.
+
+Intended as a replacement of the M4 Sherman, the prolonged time of development meant that only a small number saw combat in the European theater, most notably in the 9th Armored Division's dramatic dash to take the Ludendorff Bridge during the Battle of Remagen. Based on the criteria of firepower, mobility, and protection, R. P. Hunnicutt ranked the Pershing second, behind the German Panther medium tank, but ahead of the Tiger I heavy tank. In service during the Korean War, the M26 outmatched the T-34-85 in terms of firepower and protection, but was challenged by the hilly and muddy terrain, and as a result was withdrawn in 1951 in favor of its improved derivative, the M46 Patton, which had a considerably more powerful and reliable engine as well as an advanced and improved suspension to better meet the demands of the specific terrain it operated in. The lineage of the M26 continued with the M47 Patton, and was reflected in the new designs of the later M48 Patton and M60 Patton."
+
+title="M26" id="panzer" />
+				<h2 class="item">M26</h2></li>
+
+
+
+
+				<li > <img class="myImg" src="images/usa/m5.png"  data-src="images/usa/m5big.png" alt="M5
+
+					The M5, officially Light Tank, was an American light tank of World War II. It was supplied to British and other Commonwealth forces under lend-lease prior to the entry of the U.S. into the war.
+
+"
+data-more="To relieve wartime demand for the radial aero-engines used in the M3, a new version was developed using twin Cadillac V8 automobile engines and twin Hydra-Matic transmissions operating through a transfer case. This version of the tank was quieter, cooler and roomier; the automatic transmission also simplified crew training. The new model (initially called M4 but redesignated M5 to avoid confusion with the M4 Sherman[9]) featured a redesigned hull with a raised rear deck over the engine compartment, sloped glacis plate and driver's hatches moved to the top. Although the main criticism from units using the Stuarts was that it lacked firepower, the improved M5 series kept the same 37 mm gun. The M5 gradually replaced the M3 in production from 1942 and, after the M7 project proved unsatisfactory, was succeeded by the Light Tank M24 in 1944. Total M5 and M5A1 tank production was 8,885; an additional 1,778 M8 75 mm howitzer motor carriages based on the M5 chassis with an open-top turret were produced."
+
+title="M5" id="panzer"
+
+" data-index="0"  />
+
+				<h2 class="item" >M5</h2></li>
+
+				<li ><img class="myImg" src="images/usa/T20.png"  data-src="images/usa/T20big.png" alt="T20
+
+					The Medium Tank T20 was part of a series of medium tanks designed by the United States during the Second World War, to be the successor to the Medium Tank M4 'Sherman', and culminated in the M26 Pershing.
+
+"
+data-more="Almost immediately after the M4 Sherman was standardized, the US Ordnance Department started work on a successor. The Ordnance Department had already been working on heavily armored infantry tank design for the British, using M4 parts.[1] The new project was started on the 25 May 1942, it was originally designated M4X. Starting with the T20, the Ordnance Department initially developed three series of improved medium tank prototypes, the T20, T22, and T23. The main differences between the T20, T22 and T23 lay in the choice of transmission.[2] The T20 used a torque converter fluid drive, the T22 a 5-speed mechanical drive similar to the M4 drive, and the T23 used an electric drive. All moved the transmission to the rear of the vehicle eliminating the need for a driveshaft running the length of the vehicle. The driveshaft used in the M3 & M4 vehicles forced the turret to be mounted higher increasing the vehicle height.
+
+Within each different prototype series, a variety of different suspension and armament configurations were tried out, for example, the T20 had an early version of the horizontal volute spring suspension (HVSS) suspension later employed on the M4A3 Sherman, whereas the T20E3 had torsion bar suspension."
+
+ title="T20" id="panzer"/>
+				<h2 class="item" >T20</h2></li>
+
+				<li><img class="myImg" src="images/usa/m3.png" data-src="images/usa/m3big.png" alt="M3 LEE
+
+					The M3 Lee, officially Medium Tank, M3, was an American medium tank used during World War II.
+
+"
+data-more="Tanks employing US pattern turrets were called the 'Lee', named after Confederate general Robert E. Lee. Variants using British pattern turrets were known as 'Grant', named after Union general Ulysses S. Grant.
+
+Design commenced in July 1940, and the first M3s were operational in late 1941. The U.S. Army needed a medium tank armed with a 75mm gun and, coupled with the United Kingdom's immediate demand for 3,650 medium tanks, the Lee began production by late 1940. The design was a compromise meant to produce a tank as soon as possible. The M3 had considerable firepower and good armor, but had serious drawbacks in its general design and shape, including a high silhouette, an archaic sponson mounting of the main gun preventing the tank from taking a hull-down position, riveted construction, and poor off-road performance.
+
+Its overall performance was not satisfactory and the tank was withdrawn from combat in most theaters as soon as the M4 Sherman tank became available in larger numbers. In spite of this, it was considered by Hans von Luck (an Oberst (Colonel) in the Wehrmacht Heer and the author of Panzer Commander) to be superior to the best German tank at the time of its introduction, the Panzer IV .
+Despite being replaced elsewhere, the British continued to use M3s in combat against the Japanese in southeast Asia until 1945. Nearly a thousand M3s were supplied to the Soviet military under Lend-Lease between 1941–1943.
+
+"
+ title="M3" id="panzer" />
+				<h2 class="item" >M3 LEE</h2></li>
+
+				<li><img class="myImg" src="images/usa/M4.png" data-src="images/usa/M4big.png" alt="M4
+
+					The M4 Sherman, officially Medium Tank, M4, was the most widely used medium tank by the United States and Western Allies in World War II.
+
+"
+data-more="The M4 Sherman proved to be reliable, relatively cheap to produce, and available in great numbers. Thousands were distributed through the Lend-Lease program to the British Commonwealth and Soviet Union. The tank was named by the British for the American Civil War general William Tecumseh Sherman.
+
+The M4 Sherman evolved from the M3 Medium Tank, which had its main armament in a side sponson mount. The M4 retained much of the previous mechanical design, but put the main 75 mm gun in a fully traversing turret. One feature, a one-axis gyrostabilizer, was not precise enough to allow firing when moving but did help keep the reticle on target, so that when the tank did stop to fire, the gun would be aimed in roughly the right direction. The designers stressed mechanical reliability, ease of production and maintenance, durability, standardization of parts and ammunition in a limited number of variants, and moderate size and weight. These factors, combined with the Sherman's then-superior armor and armament, outclassed German light and medium tanks fielded in 1939–42. The M4 went on to be produced in large numbers. It spearheaded many offensives by the Western Allies after 1942.
+"
+
+
+title="M4" id="panzer" />
+				<h2 class="item">M4</h2></li>
+
+
+			</ul>
+		</div>
+	</div>
+	<div id="myModal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgModal">
+        <div id="caption"></div>
+    </div>
+    <script>
+        let modal = document.getElementById('myModal');
+        let captionText = document.getElementById('caption');
+        let bigImg = document.getElementById('imgModal');
+        let imgList = document.getElementsByClassName('myImg');
+        let imgBox = document.getElementById('imgBox');
+
+        imgBox.addEventListener('click', function(e) {
+            var e = e || window.e;
+            modal.style.display = 'block';
+            bigImg.src = e.target.getAttribute('data-src');
+            captionText.innerText = e.target.getAttribute('alt');
+
+
+						moreText = e.target.getAttribute('data-more');
+						console.log("more text:   "+moreText)
+						let paragraph = document.createElement("p");
+						paragraph.innerText = moreText;
+						captionText.appendChild(paragraph);
+
+
+
+
+
+
+
+            e.stopPropagation();
+        }, false);
+
+        modal.addEventListener('click', function(e) {
+            var e = e || window.e;
+            modal.style.display = 'none';
+            e.stopPropagation();
+        }, false);
+    </script>
+
+
+
+
+
+
+		<!-- 左右箭头设置 -->
+		<div class="control">
+			<a href="javascript:;" id="prev"></a>
+			<a href="javascript:;" id="next"></a>
+		</div>
+	</div>
+</body>
+</html>

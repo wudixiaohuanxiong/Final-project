@@ -1,0 +1,66 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+ <title> History of Tanks </title>
+
+<link rel="stylesheet"  type="text/css" href="tank.css">
+<style>
+
+@keyframes fade-in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+
+.container{opacity: 0;      /*实先规定文字的状态是不显示的*/
+    animation: fade-in 4s ease 0s ;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+    -webkit-animation: fade-in 4s ease 0s ;
+    -moz-animation: fade-in 4s ease 0s ;
+    -o-animation: fade-in 4s ease 0s ;
+    -ms-animation: fade-in 4s ease 0s ;
+
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+
+}
+
+p{ opacity: 0;      /*实先规定文字的状态是不显示的*/
+    animation: fade-in 4s ease 1s ;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+    -webkit-animation: fade-in 4s ease 1s ;
+    -moz-animation: fade-in 4s ease 1s ;
+    -o-animation: fade-in 4s ease 1s ;
+    -ms-animation: fade-in 4s ease 1s ;
+
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+
+}
+
+
+</style>
+</head>
+<body>
+  <section class="container">
+
+  <h1>HIstory of Tanks</h1><br></br>
+  <div class="b">
+    <div class=“card”>
+      <article>
+        <p>History will be friendly to me, because I was made by history.</p>
+  </article>
+
+  <div class="item">
+  <p class="border"><a href="1.html">Enter</a></p>
+  </div>
+</div>
+</div>
+</section>
+</body>
+</html>
